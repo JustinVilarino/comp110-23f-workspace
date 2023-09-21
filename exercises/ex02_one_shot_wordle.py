@@ -14,7 +14,7 @@ YELLOW_BOX: str = "\U0001F7E8"
 
 six_letter_guess: str = input("What is your 6-letter guess?")
 
-while len(six_letter_guess) != 6:
+while len(six_letter_guess) != len(secret_word):
     six_letter_guess = str(input("That was not six letters! Try again:"))
 
 while letter_index < len(secret_word):

@@ -2,8 +2,10 @@
 
 __author__ = "730718451"
 
+
 def contains_char(word_index: str, letter_idx: str) -> bool:
     """Determines if the word contains the character being searched for."""
+    # This function will check the word for the letter we are looking for.
     assert len(letter_idx) == 1
     i = 0
     while i < len(word_index):
@@ -15,6 +17,7 @@ def contains_char(word_index: str, letter_idx: str) -> bool:
 
 def emojified(guess_word: str, secret_word: str) -> str:
     """Replaces characters with the correct emojis."""
+    # This functions incorporates the Wordle emojis.
     emoji: str = ""
     assert len(guess_word) == len(secret_word)
     i = 0
@@ -34,6 +37,7 @@ def emojified(guess_word: str, secret_word: str) -> str:
 
 def input_guess(guess_length: int) -> str:
     """Ensure that the guess has exactly 5 characters."""
+    # Checks to see if the guessed word has the expected length.
     guess: str = input(f"What is your {guess_length}-letter guess?")
     while guess_length != len(guess):
         guess = str(input(f"That wasn't {guess_length}-letters! Try again:"))
@@ -42,7 +46,7 @@ def input_guess(guess_length: int) -> str:
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
-    # Combines all of the functions
+    # Combines all of the functions.
     guessing_word: str = ""
     answer: str = "codes"
     turn: int = 1

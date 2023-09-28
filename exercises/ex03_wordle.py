@@ -3,7 +3,7 @@
 __author__ = "730718451"
 
 def contains_char(word_index: str, letter_idx: str) -> bool:
-    """Determines if the word contains the character being searched for"""
+    """Determines if the word contains the character being searched for."""
     assert len(letter_idx) == 1
     i = 0
     while i < len(word_index):
@@ -14,7 +14,7 @@ def contains_char(word_index: str, letter_idx: str) -> bool:
 
 
 def emojified(guess_word: str, secret_word: str) -> str:
-    """Replaces characters with the correct emojis"""
+    """Replaces characters with the correct emojis."""
     emoji: str = ""
     assert len(guess_word) == len(secret_word)
     i = 0
@@ -22,18 +22,18 @@ def emojified(guess_word: str, secret_word: str) -> str:
     GREEN_BOX: str = "\U0001F7E9"
     YELLOW_BOX: str = "\U0001F7E8"
     while i < len(secret_word):
-        if (contains_char(secret_word, guess_word[i]) == True) and (guess_word[i] == secret_word[i]):
+        if (contains_char(secret_word, guess_word[i]) is True) and (guess_word[i] == secret_word[i]):
             emoji = emoji + GREEN_BOX
-        if (contains_char(secret_word, guess_word[i]) == False):
+        if (contains_char(secret_word, guess_word[i]) is False):
             emoji = emoji + WHITE_BOX
-        if (contains_char(secret_word, guess_word[i]) == True) and (guess_word[i] != secret_word[i]):
+        if (contains_char(secret_word, guess_word[i]) is True) and (guess_word[i] != secret_word[i]):
             emoji = emoji + YELLOW_BOX
         i = i + 1
     return emoji
 
 
 def input_guess(guess_length: int) -> str:
-    """Ensure that the guess has exactly 5 characters"""
+    """Ensure that the guess has exactly 5 characters."""
     guess: str = input(f"What is your {guess_length}-letter guess?")
     while guess_length != len(guess):
         guess = str(input(f"That wasn't {guess_length}-letters! Try again:"))
@@ -56,7 +56,7 @@ def main() -> None:
             turn = turn + 1
         if turn == 7:
             print("X/6 - Sorry, try again tomorrow!")
-            exit()
+            return None
 
 
 if __name__ == "__main__":

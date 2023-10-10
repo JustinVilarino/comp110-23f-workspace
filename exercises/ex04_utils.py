@@ -2,7 +2,9 @@
 
 __author__ = "730718451"
 
+
 def all(number_list: list[int], input: int) -> bool:
+    """Determines if the given list contains the input."""
     # This will check if all the numbers in the list are the same as the given number.
     index: int = 0
     while index < len(number_list):
@@ -14,7 +16,9 @@ def all(number_list: list[int], input: int) -> bool:
     return True
 # If we made it here, that means all the numbers in the list are the same as the given number.
 
+
 def max(max_list: list[int]) -> int:
+    """Determines the maximum number."""
     # This will search for the largest number in the list.
     if len(max_list) == 0:
         raise ValueError("max() arg is an empty List")
@@ -30,6 +34,7 @@ def max(max_list: list[int]) -> int:
 
 
 def is_equal(first_list: list[int], second_list: list[int]) -> bool:
+    """Determines if the lists are equal."""
     # This will determine if both lists are the same.
     number: int = 0
     if len(first_list) != len(second_list):

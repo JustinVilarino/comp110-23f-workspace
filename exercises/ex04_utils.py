@@ -7,6 +7,9 @@ def all(number_list: list[int], input: int) -> bool:
     """Determines if the given list contains the input."""
     # This will check if all the numbers in the list are the same as the given number.
     index: int = 0
+    if len(number_list) == 0:
+        return False
+    # If the list is empty, it will return as false.
     while index < len(number_list):
         if number_list[index] == input:
             index = index + 1

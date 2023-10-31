@@ -14,9 +14,9 @@ def invert(input: dict[str, str]) -> dict[str, str]:
     return dictionary
 
 
-def favorite_colors(name: dict[str, str]) -> str:
+def favorite_color(name: dict[str, str]) -> str:
     """Points out the most popular color."""
-     # The function should return the most frequent color.
+    # The function should return the most frequent color.
     dictionary: dict[str, int] = {}
     for color in name:
         if name[color] in dictionary:

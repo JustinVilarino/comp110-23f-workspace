@@ -60,7 +60,7 @@ def alphabetizer(alph: list[str]) -> dict[str, list[str]]:
 
 def update_attendance(week: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
     """Creates a dictionary that can be mutated."""
-    # The function should allow itself to be updated.
+    # The function should allow the schedule to be updated.
     if day in week:
         week[day].append(student)
     else:

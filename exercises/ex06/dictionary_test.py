@@ -18,102 +18,102 @@ def test_empty_invert() -> None:
     """Invert of empty list should be empty."""
     test_empty_i: list[str] = ["", ""]
     test_empty_i_values: list[str] = ["", ""]
-    assert invert(test_empty_i, test_empty_i_values) == {"KeyError"}
+    assert invert({}) == {}
 
 
 def test_invert_one_case() -> None:
     """Testing Invert with one use case."""
     test_invert_a: list[str] = ["lebron", "james"]
     test_invert_b: list[str] = ["michael", "jordan"]
-    assert invert(test_invert_a, test_invert_b) == {"james": "lebron", "jordan": "michael"}
+    assert invert({"lebron": "james", "michael": "jordan"}) == {"james": "lebron", "jordan": "michael"}
 
 
 def test_invert_two_cases() -> None:
     """Testing Invert with two use cases."""
     test_invert_a2: list[str] = ["spongebob", "patrick"]
     test_invert_b2: list[str] = ["squidward", "mr.krabs"]
-    assert invert(test_invert_a2, test_invert_b2) == {"patrick": "spongebob", "mr.krabs": "squidward"}
+    assert invert({"spongebob": "patrick", "squidward": "mr.krabs"}) == {"patrick": "spongebob", "mr.krabs": "squidward"}
 
 
 def test_empty_favorite_color() -> None:
     """Favorite color empty list should be empty."""
     test_empty_f: list[str] = ["", ""]
     test_empty_f_values: list[str] = ["", ""]
-    assert favorite_color(test_empty_f, test_empty_f_values) == {}
+    assert favorite_color({}) == ""
 
 
 def test_favorite_color_one_case() -> None:
     """Testing Favorite color with one use case."""
     test_favorite_color_a: list[str] = ["Marc", "blue"]
     test_favorite_color_b: list[str] = ["Kris", "blue"]
-    assert favorite_color(test_favorite_color_a, test_favorite_color_b) == {"blue"}
+    assert favorite_color({"Marc": "blue", "Kris": "blue"}) == "blue"
 
 
 def test_favorite_color_two_cases() -> None:
     """Testing Favorite color with two use cases."""
     test_favorite_color_a2: list[str] = ["George", "green"]
     test_favorite_color_b2: list[str] = ["Robert", "green"]
-    assert favorite_color(test_favorite_color_a2, test_favorite_color_b2) == {"green"}
+    assert favorite_color({"George": "green", "Robert": "green"}) == "green"
 
 
 def test_empty_count() -> None:
     """Count empty list should be empty."""
     test_empty_c: list[str] = ["", ""]
     test_empty_c_values: list[int] = []
-    assert count(test_empty_c, test_empty_c_values) == {}
+    assert count({}) == {}
 
 
 def test_count_one_case() -> None:
     """Testing Count with one use case."""
-    test_count_a: list[str] = ["bananas", "apples"]
-    test_count_b: list[int] = [1]
-    assert count(test_count_a, test_count_b) == {1}
+    test_count_a: list[str] = ["bananas", "apples", "bananas"]
+    assert count(test_count_a) == {"bananas": 2, "apples": 1}
 
 
 def test_count_two_cases() -> None:
     """Testing Count with two use cases."""
-    test_count_a2: list[str] = ["cars", "cars"]
-    test_count_b2: list[int] = [2]
-    assert count(test_count_a2, test_count_b2) == {2}
+    test_count_a2: list[str] = ["cars", "cars", "airplanes"]
+    assert count(test_count_a2) == {"cars": 2, "airplanes": 1}
 
 
 def test_empty_alphabetizer() -> None:
     """Alphabetizer empty list should be empty."""
     test_empty_a: list[str] = ["", ""]
     test_empty_a_values: list[str] = ["", ""]
-    assert alphabetizer(test_empty_a, test_empty_a_values) == {}
+    assert alphabetizer([]) == {}
 
 
 def test_alphabetizer_one_case() -> None:
     """Testing Alphabetizer with one use case."""
     test_alphabetizer_a: list[str] = ["apple", "cat"]
     test_alphabetizer_b: list[str] = ["car", "angry"]
-    assert alphabetizer(test_alphabetizer_a, test_alphabetizer_b) == {"c": "cat" "car", "a": "apple" "angry"}
+    assert alphabetizer(test_alphabetizer_b) == {"c": ["car"], "a": ["angry"]}
 
 
 def test_alphabetizer_two_cases() -> None:
     """Testing Alphabetizer with two use cases."""
     test_alphabetizer_a2: list[str] = ["bear", "dog"]
     test_alphabetizer_b2: list[str] = ["deer", "bee"]
-    assert alphabetizer(test_alphabetizer_a2, test_alphabetizer_b2) == {"b": "bear" "bee", "d": "dog" "deer"}
+    assert alphabetizer(test_alphabetizer_a2) == {"b": ["bear"], "d": ["dog"]}
 
 
 def test_empty_update_attendance() -> None:
     """Update attendance empty list should be empty."""
-    test_empty_u: list[str] = [""]
-    test_empty_u_values: list[str] = ["", ""]
-    assert update_attendance(test_empty_u, test_empty_u_values) == {}
+    test_empty_u: str = "Sunday"
+    test_empty_u_values: str = "Joe"
+    assert update_attendance({}, test_empty_u, test_empty_u_values) == {"Sunday": ["Joe"]}
 
 
 def test_update_attendance_one_case() -> None:
     """Testing Update attendance with one use case."""
-    test_update_attendance_a: list[str] = ["Monday"]
-    test_update_attendance_b: list[str] = ["Mike", "Jeremy"]
-    assert update_attendance(test_update_attendance_a, test_update_attendance_b) == {"Monday": ["Mike", "Jeremy"]}
+    att: dict[str, list[str]] = {}
+    test_update_attendance_a: str = "Monday"
+    test_update_attendance_b: str = "Mike"
+    assert update_attendance(att, test_update_attendance_a, test_update_attendance_b) == {"Monday": ["Mike"]}
 
 
 def test_update_attendance_two_cases() -> None:
     """Testing Update attendance with two use cases."""
-    test_update_attendance_a2: list[str] = ["Tuesday"]
-    test_update_attendance_b2: list[str] = ["Fritz", "William"]
-    assert update_attendance(test_update_attendance_a2, test_update_attendance_b2) == {"Tuesday": ["Fritz", "William"]}
+    att2: dict[str, list[str]] = {}
+    test_update_attendance_a2: str = "Tuesday"
+    test_update_attendance_b2: str = "Fritz"
+    assert update_attendance(att2, test_update_attendance_a2, test_update_attendance_b2) == {"Tuesday": ["Fritz"]}

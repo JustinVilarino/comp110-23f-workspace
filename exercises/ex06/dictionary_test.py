@@ -5,12 +5,20 @@ __author__ = "730718451"
 
 from exercises.ex06.dictionary import invert
 
+from exercises.ex06.dictionary import favorite_color
+
+from exercises.ex06.dictionary import count
+
+from exercises.ex06.dictionary import alphabetizer
+
+from exercises.ex06.dictionary import update_attendance
+
 
 def test_empty_invert() -> None:
     """Invert of empty list should be empty."""
     test_empty_i: list[str] = ["", ""]
     test_empty_i_values: list[str] = ["", ""]
-    assert invert(test_empty_i, test_empty_i_values) == {}
+    assert invert(test_empty_i, test_empty_i_values) == {"KeyError"}
 
 
 def test_invert_one_case() -> None:
@@ -25,9 +33,6 @@ def test_invert_two_cases() -> None:
     test_invert_a2: list[str] = ["spongebob", "patrick"]
     test_invert_b2: list[str] = ["squidward", "mr.krabs"]
     assert invert(test_invert_a2, test_invert_b2) == {"patrick": "spongebob", "mr.krabs": "squidward"}
-
-
-from exercises.ex06.dictionary import favorite_color
 
 
 def test_empty_favorite_color() -> None:
@@ -51,9 +56,6 @@ def test_favorite_color_two_cases() -> None:
     assert favorite_color(test_favorite_color_a2, test_favorite_color_b2) == {"green"}
 
 
-from exercises.ex06.dictionary import count
-
-
 def test_empty_count() -> None:
     """Count empty list should be empty."""
     test_empty_c: list[str] = ["", ""]
@@ -75,9 +77,6 @@ def test_count_two_cases() -> None:
     assert count(test_count_a2, test_count_b2) == {2}
 
 
-from exercises.ex06.dictionary import alphabetizer
-
-
 def test_empty_alphabetizer() -> None:
     """Alphabetizer empty list should be empty."""
     test_empty_a: list[str] = ["", ""]
@@ -97,9 +96,6 @@ def test_alphabetizer_two_cases() -> None:
     test_alphabetizer_a2: list[str] = ["bear", "dog"]
     test_alphabetizer_b2: list[str] = ["deer", "bee"]
     assert alphabetizer(test_alphabetizer_a2, test_alphabetizer_b2) == {"b": "bear" "bee", "d": "dog" "deer"}
-
-
-from exercises.ex06.dictionary import update_attendance
 
 
 def test_empty_update_attendance() -> None:
